@@ -1,7 +1,7 @@
 body{
     margin:0;
     padding:0;
-    background-color: bisque;
+    background-color:cornsilk;
 }
 #container{
     display: flex;
@@ -28,7 +28,7 @@ body{
     border-radius: 10px;
     margin-bottom: 10px;
 }
-#buttons{
+#buttonGrid{
     display: grid;
     grid-template-rows:repeat(5,80px);
     grid-template-columns: repeat(4,25%);
