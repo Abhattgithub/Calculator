@@ -45,3 +45,7 @@ body{
 #zero{
     grid-column:span 2;
 }
+#screen{
+    font-size: 4em;
+    font-weight: 500;
+}
