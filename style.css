@@ -1,6 +1,7 @@
 body{
     margin:0;
     padding:0;
+    background-color: bisque;
 }
 #container{
     display: flex;
@@ -11,4 +12,36 @@ body{
 }
 #calcBody{
     background-color: gray;
+    width:430px;
+    border: 8px solid gray;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.585);
+    padding: 10px 10px;
+}
+#screen{
+    width: 100%;
+    border: 2px black solid;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+#buttons{
+    display: grid;s
+    grid-template-rows:repeat(5,80px);
+    grid-template-columns: repeat(4,25%);
+    gap:1px;
+}
+.bttn{
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+    font-size:x-large;
+    font-weight: 900;
+}
+#zero{
+    grid-column:span 2;
 }
