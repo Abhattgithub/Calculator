@@ -1,0 +1,14 @@
+body{
+    margin:0;
+    padding:0;
+}
+#container{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+#calcBody{
+    background-color: gray;
+}
