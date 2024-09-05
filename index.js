@@ -59,7 +59,7 @@ operatorPressed.forEach(element => {
             secondOperand = displayResult;
             //calculate
             operation(firstOperand,operator,secondOperand);
-            displayResult = 1;
+            displayResult = 0;
         }
     })
 })
@@ -130,6 +130,29 @@ function enterDecimal(){
 }
 
 //Clears Screen and resets all value
+document.querySelectorAll(".controls").forEach(element => {
+    let controlPressed = element.addEventListener("click",()=>{
+        if (element.value == "clear"){
+            clearDisplay();
+        } else if(element.value == "signChange"){
+            if(decimalCount == 0){
+                displayResult *= -1;
+                displayOutput(displayResult);
+            } else{
+                decimalResult *= -1;
+                displayOutput(decimalResult);
+            }
+        } else{
+                if(decimalCount == 0){
+                displayResult /= 100;
+                displayOutput(displayResult);
+            } else{
+                decimalResult /= 100;
+                displayOutput(decimalResult);
+            }
+        }
+    })
+})
 function clearDisplay(){
     firstOperand = 0;
     secondOperand = 0;
