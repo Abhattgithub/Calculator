@@ -13,7 +13,13 @@ displayOutput(0);
 let numPressed = document.querySelectorAll(".numbers")
 numPressed.forEach(element =>{
     element.addEventListener("click", ()=>{
-        
+
+        let operatorButtons = document.querySelectorAll(".operator")
+        operatorButtons.forEach(element=>{
+            if(element.style.opacity="0.5"){
+                element.style.opacity="1";
+            }
+        })
         if(element.value == "decimal" && decimalCount == 0){
             enterDecimal();
             return;
@@ -30,31 +36,52 @@ numPressed.forEach(element =>{
 let operatorPressed = document.querySelectorAll(".operator")
 operatorPressed.forEach(element => {
     element.addEventListener("click", ()=>{
-        if( displayResult != 0 && typeof(displayResult) == "number"){
+        if(decimalCount != 0)
+            decimalCount = 0;
+        if( displayResult != 0 && typeof(displayResult) == "number" && firstOperand == 0){
+            if(decimalResult != 0)
+                firstOperand = decimalResult;
+            else
             firstOperand = displayResult;
             displayResult = 0;
-        } else {
+
+            element.style.opacity= "0.5";
+            operator = element.value;
+        } else if(displayResult != 0 && typeof(displayResult) == "number" && secondOperand == 0 && element.value !="equals"){
+            secondOperand = displayResult;
             
-        } 
-        
-
-
-
+            //Calculate
+            operation(firstOperand,operator,secondOperand);
+            displayResult = 0;
+            element.style.opacity= "0.5";
+            operator = element.value;
+        } else{
+            secondOperand = displayResult;
+            //calculate
+            operation(firstOperand,operator,secondOperand);
+            displayResult = 1;
+        }
     })
 })
 
 
 // displays the screen
 function displayOutput(Result){
-    displayScreen.innerHTML = Result;    
+    displayScreen.innerHTML = Result;
 }
+
+
+
+
+
+
 
 // document.addEventListener("click", ()=>{
 
 // })
 
 
-// if entering numbers (operand)
+// if entering numbers 
 
 
 
@@ -71,7 +98,11 @@ function operation(num1, operator, num2){
     else
         displayResult = "ERROR";
 
-    firstOperand = num1;
+    firstOperand = displayResult;
+    if(secondOperand != 0){
+        operator = 0;
+        secondOperand = 0;
+    }
     displayOutput(displayResult);
 }
 
